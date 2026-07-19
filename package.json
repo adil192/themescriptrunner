@@ -1,0 +1,28 @@
+{
+  "name": "themescriptrunner",
+  "version": "0.0.0",
+  "description": "Runs your scripts after you change light/dark mode",
+  "type": "module",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adil192/themescriptrunner.git"
+  },
+  "author": "Adil Hanney <adilhanney@disroot.org>",
+  "license": "LGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/adil192/themescriptrunner/issues"
+  },
+  "homepage": "https://github.com/adil192/themescriptrunner#readme",
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "@girs/gjs": "^4.1.0",
+    "@girs/gnome-shell": "^50.0.4"
+  }
+}
