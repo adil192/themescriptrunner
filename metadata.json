@@ -1,0 +1,8 @@
+{
+  "name": "Theme Script Runner",
+  "description": "Runs your scripts after you change light/dark mode",
+  "uuid": "themescriptrunner@adilhanney.com",
+  "shell-version": [
+    "50"
+  ]
+}
