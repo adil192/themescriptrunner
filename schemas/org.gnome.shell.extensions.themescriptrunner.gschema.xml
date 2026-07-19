@@ -1,15 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE schemalist PUBLIC "org.gnome.shell.extensions.themescriptrunner.gschema.dtd"
+  "https://gitlab.gnome.org/GNOME/glib/-/raw/HEAD/gio/gschema.dtd">
 <schemalist>
-  <schema id="org.gnome.shell.extensions.themescriptrunner" path="/org/gnome/shell/extensions/themescriptrunner/">
-    <key name="padding-inner" type="i">
-      <default>8</default>
-      <summary>Inner padding</summary>
-      <description>Padding between windows</description>
+  <schema
+    id="org.gnome.shell.extensions.themescriptrunner"
+    path="/org/gnome/shell/extensions/themescriptrunner/"
+  >
+    <key name="light-command" type="s">
+      <summary>Light command</summary>
+      <description>Command to run when entering light mode</description>
+      <default>""</default>
     </key>
-    <key name="animate" type="b">
-      <default>true</default>
-      <summary>Animation</summary>
-      <description>Whether to animate window movement/resizing</description>
+    <key name="dark-command" type="s">
+      <summary>Dark command</summary>
+      <description>Command to run when entering dark mode</description>
+      <default>""</default>
     </key>
   </schema>
 </schemalist>

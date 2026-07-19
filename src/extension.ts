@@ -7,11 +7,13 @@ import { Extension } from "resource:///org/gnome/shell/extensions/extension.js";
 
 export default class MyExtension extends Extension {
   gsettings?: Gio.Settings;
-  animationsEnabled: boolean = true;
+  lightCommand?: string;
+  darkCommand?: string;
 
   enable() {
     this.gsettings = this.getSettings();
-    this.animationsEnabled = this.gsettings.get_boolean("animate") ?? true;
+    this.lightCommand = this.gsettings.get_string("light-command");
+    this.darkCommand = this.gsettings.get_string("dark-command");
   }
 
   disable() {

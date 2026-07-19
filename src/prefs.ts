@@ -16,40 +16,34 @@ export default class GnomeRectanglePreferences extends ExtensionPreferences {
       title: _("General"),
       iconName: "dialog-information-symbolic",
     });
-
-    const animationGroup = new Adw.PreferencesGroup({
-      title: _("Animation"),
-      description: _("Configure move/resize animation"),
-    });
-    page.add(animationGroup);
-
-    const animationEnabled = new Adw.SwitchRow({
-      title: _("Enabled"),
-      subtitle: _("Wether to animate windows"),
-    });
-    animationGroup.add(animationEnabled);
-
-    const paddingGroup = new Adw.PreferencesGroup({
-      title: _("Paddings"),
-      description: _("Configure the padding between windows"),
-    });
-    page.add(paddingGroup);
-
-    const paddingInner = new Adw.SpinRow({
-      title: _("Inner"),
-      subtitle: _("Padding between windows"),
-      adjustment: new Gtk.Adjustment({
-        lower: 0,
-        upper: 1000,
-        stepIncrement: 1,
-      }),
-    });
-    paddingGroup.add(paddingInner);
-
     window.add(page);
 
-    this._settings!.bind("animate", animationEnabled, "active", Gio.SettingsBindFlags.DEFAULT);
-    this._settings!.bind("padding-inner", paddingInner, "value", Gio.SettingsBindFlags.DEFAULT);
+    const lightGroup = new Adw.PreferencesGroup({
+      title: _("Light mode"),
+      description: _("When entering light mode..."),
+    });
+    page.add(lightGroup);
+    const lightCommand = new Adw.EntryRow({
+      title: _("Command to run"),
+      cssClasses: ["command-entry-row"],
+      inputPurpose: Gtk.InputPurpose.TERMINAL,
+    });
+    lightGroup.add(lightCommand);
+
+    const darkGroup = new Adw.PreferencesGroup({
+      title: _("Dark mode"),
+      description: _("When entering dark mode..."),
+    });
+    page.add(darkGroup);
+    const darkCommand = new Adw.EntryRow({
+      title: _("Command to run"),
+      cssClasses: ["command-entry-row"],
+      inputPurpose: Gtk.InputPurpose.TERMINAL,
+    });
+    darkGroup.add(darkCommand);
+
+    this._settings.bind("light-command", lightCommand, "text", Gio.SettingsBindFlags.DEFAULT);
+    this._settings.bind("dark-command", darkCommand, "text", Gio.SettingsBindFlags.DEFAULT);
 
     return Promise.resolve();
   }

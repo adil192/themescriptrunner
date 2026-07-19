@@ -26,4 +26,4 @@ install: $(NAME).zip
 	gnome-extensions install --force $(NAME).zip
 
 clean:
-	@rm -rf dist $(NAME).zip
+	@rm -rf dist schemas/gschemas.compiled $(NAME).zip
