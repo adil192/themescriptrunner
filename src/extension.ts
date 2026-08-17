@@ -14,10 +14,12 @@ export default class ThemeScriptRunnerExtension extends Extension {
     let gnomeInterfaceSettings = new Gio.Settings({ schema_id: "org.gnome.desktop.interface" });
     this.gnomeInterfaceSettings = gnomeInterfaceSettings;
 
-    this.colorSchemeChangedId = gnomeInterfaceSettings.connect("changed::color-scheme", () => {
+    let onColorSchemeChanged = () => {
       const scheme = gnomeInterfaceSettings.get_string("color-scheme");
       ThemeScriptRunnerExtension._onColorSchemeChanged(scheme, gsettings);
-    });
+    };
+    this.colorSchemeChangedId = gnomeInterfaceSettings.connect("changed::color-scheme", onColorSchemeChanged);
+    onColorSchemeChanged();
   }
 
   disable() {
