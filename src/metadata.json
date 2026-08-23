@@ -5,6 +5,7 @@
   "url": "https://github.com/adil192/themescriptrunner",
   "settings-schema": "org.gnome.shell.extensions.themescriptrunner",
   "shell-version": [
-    "50"
+    "50",
+    "51"
   ]
 }
